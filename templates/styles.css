@@ -1,19 +1,22 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700|Inconsolata:400,700);
-
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.wsk-layout__header, .wsk-layout__header .wsk-layout__drawer-button {
+  background-color: #0288D1;
+}
+
+a {
+  color: #03A9F4;
 }
 
 pre {
   font-family: 'Inconsolata', monospace;
 }
 
-code {
-  background-color: transparent;
-  color: black;
-  padding: 0;
-  border-radius: 0;
-  font-size: 100%;
+h4 {
+  opacity: 0.87;
+  margin: 16px 0 16px 0;
 }
 
 pre.prettyprint {
@@ -22,79 +25,47 @@ pre.prettyprint {
   border: 1px solid #CCC;
 }
 
-.title .type, .classname, .classname a {
-  color: #BBB;
-}
-
-@media (min-width:970px) and (max-width: 2500px) {
-  .container {
-    width:970px;
-  }
-}
-
-#title {
-  background-color: rgba(0,164,228, 0.1);
-  margin-bottom: 20px;
-}
-
-h1.title {
-  margin: 120px 0 60px 0;
-}
-
 dt {
   font-weight: normal;
   margin-bottom: 3px;
 }
 
-.impls-extends ul {
-  margin-bottom: 0;
-}
-
-.impls-extends ul li {
-  display: inline;
+section#description {
+  margin-top: 16px;
 }
 
 section.summary {
   border-top: 1px solid hsl(0, 0%, 78%);
 }
 
-section.summary h2 {
-  color: hsl(0, 0%, 46%);
-  margin: 20px 0 20px 0;
-}
-
-section.desc h2 {
-  font-size: 18px;
-}
-
-.summary dl, .summary table {
-  margin: 16px;
-}
-
 .summary dd {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
+  opacity: 0.54;
 }
 
 dl.withreturntypes .returntype {
   float: left;
-  width: 250px;
-  color: gray;
+  width: 240px;
+  opacity: 0.54;
 }
 
 dl.withreturntypes span.name-and-params {
-    display: block;
-    margin-left: 250px;
+  display: block;
+  margin-left: 240px;
 }
 
 dl.withreturntypes dd {
-  margin-left: 250px;
-  color: gray;
+  margin-left: 240px;
+}
+
+dl.withreturntypes .parameter-name, dl.withreturntypes .constant-value {
+  color: #727272;
 }
 
 @media (max-width: 768px) {
   dl.withreturntypes dd {
     margin-left: 0;
-    padding-left: 18px;
+    padding-left: 16px;
   }
 
   dl.withreturntypes .returntype {
@@ -104,18 +75,30 @@ dl.withreturntypes dd {
   }
 
   dl.withreturntypes span.name-and-params {
-      display: inline;
-      margin:0;
+    display: inline;
+    margin:0;
+  }
+}
+
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
 dl.dl-horizontal dt {
-  width: 250px;
+  width: 240px;
   font-style: normal;
 }
 
 dl.dl-horizontal dd {
-  padding-left: 18px;
+  padding-left: 16px;
   margin-left: 0; /* override bootstrap */
 }
 
@@ -124,7 +107,7 @@ dl.dl-horizontal dd {
 }
 
 .parameters {
-  margin-left:36px;
+  margin-left: 32px;
 }
 
 .param-name {
@@ -136,8 +119,7 @@ p.firstline {
 }
 
 .method-detail {
-  border-bottom: 1px solid gray;
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 .dl-horizontal dt {
@@ -145,19 +127,12 @@ p.firstline {
   font-style: italic;
 }
 
-footer {
-  margin-top: 36px;
-  background-color: #EEE;
-  height: 60px;
-  padding: 18px;
-}
-
 .markdown h1 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .markdown h2 {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .has-it::before {
@@ -186,27 +161,27 @@ ul.gt-separated li:last-child:after {
 }
 
 .multi-line-signature {
-    font-size: 18px;
+  font-size: 16px;
 }
 
 ul.breadcrumbs {
-    position: absolute;
-    padding: 0;
-    margin: 8px 0 8px 0;
+  position: absolute;
+  padding: 0;
+  margin: 8px 0 8px 0;
 }
 
 ul.comma-separated {
-    list-style: none;
-    padding: 0;
-    display: inline;
+  list-style: none;
+  padding: 0;
+  display: inline;
 }
 
 ul.comma-separated li {
-    display: inline;
+  display: inline;
 }
 
 ul.comma-separated li:after {
-    content: ", ";
+  content: ", ";
 }
 
 ul.comma-separated li:last-child:after {
@@ -214,20 +189,15 @@ ul.comma-separated li:last-child:after {
 }
 
 ul.end-with-period li:last-child:after {
-    content: ".";
+  content: ".";
 }
 
 section {
-    margin-bottom: 18px;
-}
-
-#declared-in {
-    font-style: italic;
+  margin-bottom: 16px;
 }
 
 dl.constructor-summary-list dd {
-  margin-left: 18px;
-  color: gray;
+  margin-left: 16px;
 }
 
 .constructor-modifier {

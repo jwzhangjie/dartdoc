@@ -99,7 +99,12 @@ class HtmlGenerator extends Generator {
       'package': package,
       'generatedOn': generatedOn,
       'markdown': renderMarkdown,
-      'oneLiner': oneLiner
+      'oneLiner': oneLiner,
+      'title': '${package.name} - Dart API docs',
+      'layoutTitle': '${package.name} package',
+      'metaDescription': '${package.name} API docs, for the Dart programming language.',
+      'navLinks': [package],
+        'htmlBase': '.'
     };
 
     _writeFile('index.html', indexTemplate, data);
@@ -113,7 +118,12 @@ class HtmlGenerator extends Generator {
       'library': lib,
       'generatedOn': generatedOn,
       'markdown': renderMarkdown,
-      'oneLiner': oneLiner
+      'oneLiner': oneLiner,
+        'title': '${library.name} library - Dart API',
+        'htmlBase': '..',
+        'metaDescription': '${library.name} library API docs, for the Dart programming language.',
+        'navLinks': [package],
+        'layoutTitle': '${library.name} library'
     };
 
     _writeFile(path.join(lib.fileName, 'index.html'), libraryTemplate, data);
@@ -126,7 +136,12 @@ class HtmlGenerator extends Generator {
       'markdown': renderMarkdown,
       'oneLiner': oneLiner,
       'library': lib,
-      'class': clazz
+      'class': clazz,
+        'title': '${clazz.name} ${clazz.kind} - ${library.name} library - Dart API',
+        'metaDescription': 'API docs for the ${clazz.name} ${clazz.kind} from the ${library.name} library, for the Dart programming language.',
+        'layoutTitle': '${clazz.nameWithGenerics} ${clazz.kind}',
+        'navLinks': [package, library],
+        'htmlBase': '..'
     };
 
     _writeFile(path.joinAll(clazz.href.split('/')), classTemplate, data);
@@ -167,7 +182,12 @@ class HtmlGenerator extends Generator {
       'markdown': renderMarkdown,
       'oneLiner': oneLiner,
       'library': lib,
-      'function': function
+      'function': function,
+        'title': '${function.name} function - ${library.name} library - Dart API',
+        'layoutTitle': '${function.name} function',
+        'metaDescription': 'API docs for the ${function.name} function from the ${library.name} library, for the Dart programming language.',
+        'navLinks': [package, library],
+        'htmlBase': '..'
     };
 
     _writeFile(path.joinAll(function.href.split('/')), functionTemplate, data);
