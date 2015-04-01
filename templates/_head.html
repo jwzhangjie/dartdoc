@@ -9,30 +9,46 @@
     <base href="{{htmlBase}}">
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="material.css">
-    <link rel="stylesheet" href="skeleton-grid.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="prettify.css">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/skeleton-grid.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/prettify.css">
 
     <meta name="description" content="{{ metaDescription }}">
 </head>
 
 <body>
 
-<div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
-    <header class="wsk-layout__header">
+<div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
+    <header class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--waterfall wsk-layout__header--tall">
         <div class="wsk-layout__header-row">
-            <span class="wsk-layout-title">{{ layoutTitle }}</span>
+            <!-- Title -->
+            <span id="my_text_changes">Material Design Lite</span>
             <div class="wsk-layout-spacer"></div>
-            <div
-            <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label wsk-textfield--align-right">
-                <label class="wsk-button wsk-js-button wsk-button--icon" for="sample-expclean2">
-                    <span class="wsk-icon wsk-icon--search"/>
-                </label>
-                <div class="wsk-textfield__expandable-holder">
-                    <input class="wsk-textfield__input" type="text" name="sample" id="sample-expclean2" />
-                </div>
-            </div>
+            <!-- Only show when compact, check CSS -->
+            <nav class="wsk-navigation" id="compact_navigation">
+                <a class="wsk-navigation__link" href="#">SDK</a>
+                <a class="wsk-navigation__link" href="#">Library</a>
+                <a class="wsk-navigation__link" href="#">Class</a>
+            </nav>
+        </div>
+        <!-- Middle row, subtitle -->
+        <div class="wsk-layout__header-row">
+          <span class="wsk-typography--title">
+            {{ layoutTitle }}
+          </span>
+        </div>
+        <!-- Bottom row -->
+        <div class="wsk-layout__header-row">
+            <div class="wsk-layout-spacer"></div>
+            <!-- Only show when expanded, check CSS -->
+            <nav class="wsk-navigation" id="expanded_navigation">
+                <a class="wsk-navigation__link" href="#">Hello</a>
+                <a class="wsk-navigation__link" href="#">World.</a>
+                <a class="wsk-navigation__link" href="#">How</a>
+                <a class="wsk-navigation__link" href="#">Are</a>
+                <a class="wsk-navigation__link" href="#">You?</a>
+            </nav>
         </div>
     </header>
     <div class="wsk-layout__drawer">

@@ -16,6 +16,7 @@ import 'package:path/path.dart' as path;
 
 import 'model.dart';
 import '../generator.dart';
+import 'io_utils.dart';
 
 class HtmlGenerator extends Generator {
   final String _url;
@@ -210,10 +211,19 @@ class HtmlGenerator extends Generator {
 
   void _copyResources() {
     File script = new File(Platform.script.toFilePath());
-    ['styles.css', 'prettify.css', 'material-design-typography.css', 'prettify.js'].forEach((f) {
-      new File(path.join(script.parent.parent.path, 'templates', f))
-          .copySync(path.join(out.path, f));
-    });
+    var sourcePath = path.join(script.parent.parent.path, 'resources');
+    if (!new Directory(sourcePath).existsSync()) {
+      throw new StateError('resources/ directory not found');
+    }
+    for (var fileName in listDir(sourcePath, recursive: true)) {
+      var destFileName = fileName.substring(sourcePath.length+1);
+      if (FileSystemEntity.isDirectorySync(fileName)) {
+        new Directory(path.join(out.path, destFileName)).createSync(recursive: true);
+      } else {
+        var destPath = path.join(out.path, destFileName);
+        new File(fileName).copySync(destPath);
+      }
+    }
   }
 
   File _createOutputFile(String filename) {
