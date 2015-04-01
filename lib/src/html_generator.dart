@@ -119,11 +119,11 @@ class HtmlGenerator extends Generator {
       'generatedOn': generatedOn,
       'markdown': renderMarkdown,
       'oneLiner': oneLiner,
-        'title': '${library.name} library - Dart API',
+        'title': '${lib.name} library - Dart API',
         'htmlBase': '..',
-        'metaDescription': '${library.name} library API docs, for the Dart programming language.',
+        'metaDescription': '${lib.name} library API docs, for the Dart programming language.',
         'navLinks': [package],
-        'layoutTitle': '${library.name} library'
+        'layoutTitle': '${lib.name} library'
     };
 
     _writeFile(path.join(lib.fileName, 'index.html'), libraryTemplate, data);
@@ -137,10 +137,10 @@ class HtmlGenerator extends Generator {
       'oneLiner': oneLiner,
       'library': lib,
       'class': clazz,
-        'title': '${clazz.name} ${clazz.kind} - ${library.name} library - Dart API',
-        'metaDescription': 'API docs for the ${clazz.name} ${clazz.kind} from the ${library.name} library, for the Dart programming language.',
+        'title': '${clazz.name} ${clazz.kind} - ${lib.name} library - Dart API',
+        'metaDescription': 'API docs for the ${clazz.name} ${clazz.kind} from the ${lib.name} library, for the Dart programming language.',
         'layoutTitle': '${clazz.nameWithGenerics} ${clazz.kind}',
-        'navLinks': [package, library],
+        'navLinks': [package, lib],
         'htmlBase': '..'
     };
 
@@ -183,10 +183,10 @@ class HtmlGenerator extends Generator {
       'oneLiner': oneLiner,
       'library': lib,
       'function': function,
-        'title': '${function.name} function - ${library.name} library - Dart API',
+        'title': '${function.name} function - ${lib.name} library - Dart API',
         'layoutTitle': '${function.name} function',
-        'metaDescription': 'API docs for the ${function.name} function from the ${library.name} library, for the Dart programming language.',
-        'navLinks': [package, library],
+        'metaDescription': 'API docs for the ${function.name} function from the ${lib.name} library, for the Dart programming language.',
+        'navLinks': [package, lib],
         'htmlBase': '..'
     };
 
