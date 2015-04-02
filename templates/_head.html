@@ -10,7 +10,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/material.css">
-    <link rel="stylesheet" href="css/skeleton-grid.css">
+    <!--<link rel="stylesheet" href="css/skeleton-grid.css">-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/prettify.css">
 
@@ -23,32 +23,15 @@
     <header class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--waterfall wsk-layout__header--tall">
         <div class="wsk-layout__header-row">
             <!-- Title -->
-            <span id="my_text_changes">Material Design Lite</span>
+            <span id="my_text_changes">SDK &gt; Library &gt; Class</span>
             <div class="wsk-layout-spacer"></div>
-            <!-- Only show when compact, check CSS -->
-            <nav class="wsk-navigation" id="compact_navigation">
-                <a class="wsk-navigation__link" href="#">SDK</a>
-                <a class="wsk-navigation__link" href="#">Library</a>
-                <a class="wsk-navigation__link" href="#">Class</a>
-            </nav>
         </div>
-        <!-- Middle row, subtitle -->
+        <!-- Middle row -->
         <div class="wsk-layout__header-row">
-          <span class="wsk-typography--title">
+          <h1 class="wsk-typography--display-1">
             {{ layoutTitle }}
-          </span>
-        </div>
-        <!-- Bottom row -->
-        <div class="wsk-layout__header-row">
-            <div class="wsk-layout-spacer"></div>
-            <!-- Only show when expanded, check CSS -->
-            <nav class="wsk-navigation" id="expanded_navigation">
-                <a class="wsk-navigation__link" href="#">Hello</a>
-                <a class="wsk-navigation__link" href="#">World.</a>
-                <a class="wsk-navigation__link" href="#">How</a>
-                <a class="wsk-navigation__link" href="#">Are</a>
-                <a class="wsk-navigation__link" href="#">You?</a>
-            </nav>
+          </h1>
+            <p>The one-line description for this thing.</p>
         </div>
     </header>
     <div class="wsk-layout__drawer">
@@ -59,5 +42,4 @@
             {{/navLinks}}
         </nav>
     </div>
-    <div class="wsk-layout__content">
-        <div class="container">
+    <main class="wsk-layout__content">
