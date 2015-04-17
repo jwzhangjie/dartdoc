@@ -286,4 +286,6 @@ const greatestAnnotation = 'greatest';
 /// This function has two parameters that are functions.
 String functionWithFunctionParameters(int number, void thing(one, two),
     String string, Future asyncThing(three, four,
-        void nestedFunction(OtherGenericsThing crazyTalk), six, seven)) {}
+        void nestedFunction(OtherGenericsThing crazyTalk), six, seven)) {
+  return 'hello';
+}
