@@ -25,6 +25,10 @@ packages:
     description: csslib
     source: hosted
     version: "0.12.0"
+  dart_style:
+    description: dart_style
+    source: hosted
+    version: "0.1.7"
   grinder:
     description: grinder
     source: hosted

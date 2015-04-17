@@ -10,12 +10,15 @@ import 'package:analyzer/src/generated/element.dart';
 import 'package:analyzer/src/generated/resolver.dart';
 import 'package:analyzer/src/generated/utilities_dart.dart' show ParameterKind;
 import 'package:quiver/core.dart';
+import 'package:dart_style/dart_style.dart' show DartFormatter, SourceCode;
 
 import 'html_utils.dart';
 import 'model_utils.dart';
 import 'package_utils.dart';
 
 final Map<Class, List<Class>> _implementors = new Map();
+
+final DartFormatter _formatter = new DartFormatter();
 
 void _addToImplementors(Class c) {
   _implementors.putIfAbsent(c, () => []);
@@ -310,6 +313,8 @@ abstract class ModelElement {
 
   String get _href;
 
+  List linkedParamsList() {}
+
   // TODO: handle default values
   String linkedParams({bool showNames: true}) {
     List<Parameter> allParams = parameters;
@@ -401,7 +406,15 @@ abstract class ModelElement {
 
   /// End each parameter with a `<br>`
   String get linkedParamsLines {
-    return linkedParams().replaceAll('<!-- end param -->,', ',<br>');
+    return linkedParams();
+  }
+
+  String get formattedSource {
+    if (source != null && source.isNotEmpty) {
+      return _formatter.formatSource(new SourceCode(source)).text;
+    } else {
+      return null;
+    }
   }
 }
 
@@ -614,9 +627,7 @@ class Library extends ModelElement {
     // TODO(keerti): fix source for exported libraries
     elements..removeWhere(isPrivate);
     _functions = elements.map((e) {
-      String eSource =
-          (source != null) ? source.substring(e.node.offset, e.node.end) : null;
-      return new ModelFunction(e, this, eSource);
+      return new ModelFunction(e, this, e.node.toSource());
     }).toList(growable: false);
     return _functions;
   }

@@ -99,7 +99,7 @@ class DartDoc {
     SourceFactory sourceFactory =
         new SourceFactory(/*contentCache,*/ resolvers);
 
-    var options = new AnalysisOptionsImpl()..analyzeFunctionBodies = false;
+    var options = new AnalysisOptionsImpl();
 
     AnalysisContext context = AnalysisEngine.instance.createAnalysisContext()
       ..analysisOptions = options

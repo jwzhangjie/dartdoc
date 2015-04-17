@@ -19,9 +19,10 @@ dependencies:
   yaml: '^2.1.0'
   pub_cache: '0.0.1+2'
   http: '^0.11.2'
+  dart_style: '^0.1.7'
 dev_dependencies:
   grinder: '^0.6.0'
   unittest: '^0.11.0'
-  librato: any
+  librato: '^0.0.2+1'
 executables:
   dartdoc: null
