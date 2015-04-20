@@ -7,7 +7,8 @@
     </section>
 
     <section class="source-definition">
-        <pre><code class="prettyprint lang-dart">{{function.formattedSource}}</code></pre>
+        <button class="toggle-show">Show Source</button>
+        <pre id="source-code" style="display:none"><code class="prettyprint lang-dart">{{function.formattedSource}}</code></pre>
     </section>
 
     <section class="desc markdown">
@@ -19,3 +20,19 @@
     </section>
 
 {{>footer}}
+
+<script>
+var toggle = document.querySelector('.source-definition button');
+var sourceCode = document.querySelector('.source-definition #source-code');
+toggle.addEventListener('click', function() {
+    if (toggle.classList.contains('toggle-show')) {
+        sourceCode.style.display = 'block';
+        toggle.innerHTML = 'Hide Source';
+        toggle.classList.remove('toggle-show');
+    } else {
+        sourceCode.style.display = 'none';
+        toggle.innerHTML = 'Show Source';
+        toggle.classList.add('toggle-show');
+    }
+});
+</script>
